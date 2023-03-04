@@ -1,31 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'Home/main_page.dart';
 
 void main() {
-  runApp(MaterialApp(
-    home: Scaffold(
-      appBar: AppBar(
-        title: Text('IsKainan'),
-        centerTitle: true,
-        backgroundColor: Colors.red[900],
+  runApp(const Home());
+}
+
+
+class Home extends StatelessWidget {
+  const Home({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'IsKainan',
+      theme: ThemeData(
+        primarySwatch: Colors.red,
       ),
-      body: Center(
-        child: Text(
-            'Food Recommender App',
-            style: TextStyle(
-              fontSize: 20.0,
-              fontWeight: FontWeight.bold,
-              letterSpacing: 2.0,
-              color: Colors.grey[600],
-              fontFamily: 'Roboto'
-            ),
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: Text('Kaen!'),
-        backgroundColor: Colors.green[900],
-        ),
-      ),
-    ),
-  );
+      home: MainPage(),
+    );
+  }
 }
