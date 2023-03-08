@@ -1,34 +1,49 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:iskainan/controllers/vendor_controller.dart';
 import 'package:iskainan/widgets/app_icon.dart';
 
+import '../../routes/route_helper.dart';
 import '../../utils/colors.dart';
 import '../../utils/dimensions.dart';
 import '../../widgets/big_text.dart';
 import '../../widgets/expandable_text_widget.dart';
 
 class RecommendedFoodDetail extends StatelessWidget {
-  const RecommendedFoodDetail({Key? key}) : super(key: key);
+  final int pageId;
+  RecommendedFoodDetail({Key? key, required this.pageId}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    var foodProfile = Get.find<VendorController>().vendorVendorList[pageId].food_model[0];
     return Scaffold(
       backgroundColor: Colors.white,
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
+            automaticallyImplyLeading: false,
             toolbarHeight: 70,
             title: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                AppIcon(icon: Icons.clear),
-                AppIcon(icon: Icons.location_on),
+                GestureDetector(
+                    onTap: (){
+                      Get.toNamed(RouteHelper.initial);
+                    },
+                    child: AppIcon(icon: Icons.clear)),
+                GestureDetector(
+                    onTap: (){
+                      Get.toNamed(RouteHelper.getVendor(pageId));
+                    },
+                    child: AppIcon(icon: Icons.store)),
               ],
             ),
             bottom: PreferredSize(
               preferredSize: Size.fromHeight(20),
               child: Container(
-                child: Center(child: BigText(size: Dimensions.font26, text: "Taco de la Costa")),
+                child: Center(child: BigText(size: Dimensions.font26, text: foodProfile.foodName!)),
                 width: double.maxFinite,
                 padding: EdgeInsets.only(top: 5, bottom: 10),
                 decoration: BoxDecoration(
@@ -45,7 +60,7 @@ class RecommendedFoodDetail extends StatelessWidget {
             expandedHeight: 300,
             flexibleSpace: FlexibleSpaceBar(
               background: Image.asset(
-                "assets/images/food3.jpg",
+                foodProfile.foodImg!,
                 width: double.maxFinite,
                 fit: BoxFit.cover,
               ),
@@ -67,7 +82,7 @@ class RecommendedFoodDetail extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           Container(
-            height: Dimensions.bottomHeightBar-Dimensions.height20,
+            height: Dimensions.bottomHeightBar,
             padding: EdgeInsets.only(top: Dimensions.height30, bottom: Dimensions.height30, left: Dimensions.width20, right: Dimensions.width20),
             decoration: BoxDecoration(
               color: AppColors.buttonBackgroundColor,
@@ -77,61 +92,37 @@ class RecommendedFoodDetail extends StatelessWidget {
               ),
             ),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Container(
-                    padding: EdgeInsets.only(top: Dimensions.height10, bottom: Dimensions.height10, left: Dimensions.width10, right: Dimensions.width10),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(Dimensions.radius20/2),
-                      color: Colors.white,
+                Row(
+                  children: [
+                    Container(
+                        padding: EdgeInsets.only(top: Dimensions.height20, bottom: Dimensions.height20, left: Dimensions.width20, right: Dimensions.width20),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(Dimensions.radius20/2),
+                          color: Colors.white,
+                        ),
+                        child: Icon(Icons.soup_kitchen,),
                     ),
-                    child: Icon(Icons.soup_kitchen,),
+                    SizedBox(width: Dimensions.width10,),
+                    Container(
+                      padding: EdgeInsets.only(top: Dimensions.height20, bottom: Dimensions.height20, left: Dimensions.width20, right: Dimensions.width20),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(Dimensions.radius20/2),
+                        color: Colors.white,
+                      ),
+                      child: Icon(Icons.soup_kitchen,),
+                    ),
+                  ],
                 ),
-                SizedBox(width: Dimensions.width10,),
                 Container(
-                  padding: EdgeInsets.only(top: Dimensions.height10, bottom: Dimensions.height10, left: Dimensions.width10, right: Dimensions.width10),
+                  padding: EdgeInsets.only(top: Dimensions.height20, bottom: Dimensions.height20, left: Dimensions.width20, right: Dimensions.width20),
+                  child: BigText(text: "Find on Map", color: Colors.white,),
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(Dimensions.radius20/2),
-                    color: Colors.white,
+                      borderRadius: BorderRadius.circular(Dimensions.radius20/2),
+                      color: AppColors.mainColor
                   ),
-                  child: Icon(Icons.soup_kitchen,),
-                ),
-                SizedBox(width: Dimensions.width10,),
-                Container(
-                  padding: EdgeInsets.only(top: Dimensions.height10, bottom: Dimensions.height10, left: Dimensions.width10, right: Dimensions.width10),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(Dimensions.radius20/2),
-                    color: Colors.white,
-                  ),
-                  child: Icon(Icons.soup_kitchen,),
-                ),
-                SizedBox(width: Dimensions.width10,),
-                Container(
-                  padding: EdgeInsets.only(top: Dimensions.height10, bottom: Dimensions.height10, left: Dimensions.width10, right: Dimensions.width10),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(Dimensions.radius20/2),
-                    color: Colors.white,
-                  ),
-                  child: Icon(Icons.soup_kitchen,),
-                ),
-                SizedBox(width: Dimensions.width10,),
-                Container(
-                  padding: EdgeInsets.only(top: Dimensions.height10, bottom: Dimensions.height10, left: Dimensions.width10, right: Dimensions.width10),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(Dimensions.radius20/2),
-                    color: Colors.white,
-                  ),
-                  child: Icon(Icons.soup_kitchen,),
-                ),
-                SizedBox(width: Dimensions.width10,),
-                Container(
-                  padding: EdgeInsets.only(top: Dimensions.height10, bottom: Dimensions.height10, left: Dimensions.width10, right: Dimensions.width10),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(Dimensions.radius20/2),
-                    color: Colors.white,
-                  ),
-                  child: Icon(Icons.soup_kitchen,),
-                ),
+                )
               ],
             ),
           ),

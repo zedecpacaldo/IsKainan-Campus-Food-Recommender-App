@@ -1,7 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:iskainan/controllers/vendor_controller.dart';
 import 'package:iskainan/widgets/expandable_text_widget.dart';
 
+import '../../routes/route_helper.dart';
 import '../../utils/colors.dart';
 import '../../utils/dimensions.dart';
 import '../../widgets/app_column.dart';
@@ -11,10 +15,12 @@ import '../../widgets/icon_and_text_widget.dart';
 import '../../widgets/small_text.dart';
 
 class PopularFoodDetail extends StatelessWidget {
-  const PopularFoodDetail({Key? key}) : super(key: key);
+  final int pageId;
+  const PopularFoodDetail({Key? key, required this.pageId}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    var vendorProfile = Get.find<VendorController>().vendorVendorList[pageId];
     return Scaffold(
       backgroundColor: Colors.white,
       body: Stack(
@@ -30,7 +36,7 @@ class PopularFoodDetail extends StatelessWidget {
                   image: DecorationImage(
                     fit: BoxFit.cover,
                     image: AssetImage(
-                      "assets/images/manglarry.png"
+                      vendorProfile.vendorImg!
                     )
                   )
                 ),
@@ -43,7 +49,11 @@ class PopularFoodDetail extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  AppIcon(icon: Icons.arrow_back_ios),
+                  GestureDetector(
+                    onTap:(){
+                      Get.toNamed(RouteHelper.initial);
+                    },
+                    child: AppIcon(icon: Icons.close)),
                   AppIcon(icon: Icons.hotel_class)
                 ],
           )),
@@ -65,7 +75,7 @@ class PopularFoodDetail extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  AppColumn(text: "Jolly Spaghetti"),
+                  AppColumn(pageId: pageId!),
                   SizedBox(height: Dimensions.height20),
                   BigText(text: "Introduction"),
                   SizedBox(height: Dimensions.height10),
@@ -98,14 +108,14 @@ class PopularFoodDetail extends StatelessWidget {
                 ),
                 child: Row(
                   children: [
-                    Icon(Icons.soup_kitchen,),
+                    Icon(vendorProfile.isOpen!?Icons.soup_kitchen:Icons.bed,),
                     SizedBox(width: Dimensions.width10/2,),
-                    BigText(text: "Open"),],
+                    BigText(text: vendorProfile.isOpen!?"Open":"Close", size: Dimensions.font20),],
                 )
               ),
               Container(
                 padding: EdgeInsets.only(top: Dimensions.height20, bottom: Dimensions.height20, left: Dimensions.width20, right: Dimensions.width20),
-                child: BigText(text: "Find on Map", color: Colors.white,),
+                child: BigText(text: "Find on Map", color: Colors.white, size: Dimensions.font20,),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(Dimensions.radius20),
                   color: AppColors.mainColor

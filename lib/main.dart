@@ -4,6 +4,7 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:iskainan/controllers/vendor_controller.dart';
 import 'package:iskainan/pages/Home/main_page.dart';
+import 'package:iskainan/routes/route_helper.dart';
 import 'helper/dependencies.dart' as dep;
 
 
@@ -24,10 +25,9 @@ class Home extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'IsKainan',
-      theme: ThemeData(
-        primarySwatch: Colors.red,
-      ),
       home: MainPage(),
+      initialRoute: RouteHelper.initial,
+      getPages: RouteHelper.routes,
     );
   }
 }

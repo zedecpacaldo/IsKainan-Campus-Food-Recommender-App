@@ -32,7 +32,7 @@ class VendorController extends GetxController{
             "vendor_rating": "4.3",
             "is_gcash": true,
             "operating_hours": "10 AM - 9 PM",
-            "is_open": true,
+            "is_open": false,
             "contact_details": "09212347389",
             "email": "manglarry@gmail.com",
             "password": "password123",
@@ -96,7 +96,7 @@ class VendorController extends GetxController{
           {
             "vendor_id": 3,
             "vendor_name": "Bulaluhan",
-            "vendor_location": "Emilio Jacinto St.",
+            "vendor_location": "Area 2, J.P. Laurel St.",
             "vendor_img": "assets/images/bulaluhan.png",
             "vendor_rating": "3.9",
             "is_gcash": true,
