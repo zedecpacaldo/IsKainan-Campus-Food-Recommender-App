@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "18880304485",
+    "project_id": "iskainan",
+    "storage_bucket": "iskainan.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:18880304485:android:fb5859e4605af06ff1fd8c",
+        "android_client_info": {
+          "package_name": "com.example.iskainan"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "18880304485-26034qguolt6tmkfp53ejdflu93e7pa1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCArOtDbKEmnyJltQPn8V45p4xwykV8NTc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "18880304485-26034qguolt6tmkfp53ejdflu93e7pa1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
