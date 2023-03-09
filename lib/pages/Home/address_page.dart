@@ -5,7 +5,8 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
 import '../../routes/route_helper.dart';
-
+import '../../widgets/big_text.dart';
+import '../../utils/colors.dart';
 class AddressPage extends StatelessWidget {
   const AddressPage({Key? key}) : super(key: key);
 
@@ -16,9 +17,8 @@ class AddressPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text(
-              'Enter your location.',
-              style: TextStyle(fontSize: 20),
+            BigText(
+              text: 'Where are you located?',
             ),
             const SizedBox(height: 24),
             SizedBox(
@@ -26,7 +26,7 @@ class AddressPage extends StatelessWidget {
               child: TextField(
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
-                  hintText: 'Enter text',
+                  hintText: 'Enter your location',
                 ),
               ),
             ),
@@ -38,6 +38,8 @@ class AddressPage extends StatelessWidget {
                   onPressed: () {
                     Get.toNamed(RouteHelper.budgetPage);
                   },
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: AppColors.mainColor),
                   child: const Icon(Icons.arrow_back),
                 ),
 
@@ -45,6 +47,8 @@ class AddressPage extends StatelessWidget {
                   onPressed: () {
                     Get.toNamed(RouteHelper.allergiesPage);
                   },
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: AppColors.mainColor),
                   child: const Icon(Icons.arrow_forward),
                 ),
               ],

@@ -6,6 +6,8 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
 import '../../routes/route_helper.dart';
+import '../../widgets/big_text.dart';
+import '../../utils/colors.dart';
 
 class AllergiesPage extends StatefulWidget {
   @override
@@ -33,9 +35,8 @@ class _AllergiesPageState extends State<AllergiesPage> {
 
           children: [
             const SizedBox(height: 48),
-            const Text(
-              'Any allergies/dislikes?',
-              style: TextStyle(fontSize: 20),
+            BigText(
+              text: 'Any allergies/dislikes?',
             ),
             const SizedBox(height: 24),
             Column(
@@ -77,6 +78,8 @@ class _AllergiesPageState extends State<AllergiesPage> {
                   onPressed: () {
                     Get.toNamed(RouteHelper.addressPage);
                   },
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: AppColors.mainColor),
                   child: const Icon(Icons.arrow_back),
                 ),
 
@@ -84,6 +87,8 @@ class _AllergiesPageState extends State<AllergiesPage> {
                   onPressed: () {
                     Get.toNamed(RouteHelper.initial);
                   },
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: AppColors.mainColor),
                   child: const Icon(Icons.search),
                 ),
               ],
