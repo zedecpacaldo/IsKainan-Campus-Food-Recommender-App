@@ -16,7 +16,7 @@ import '../../widgets/small_text.dart';
 
 class PopularFoodDetail extends StatelessWidget {
   final int pageId;
-  const PopularFoodDetail({Key? key, required this.pageId}) : super(key: key);
+  PopularFoodDetail({Key? key, required this.pageId}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

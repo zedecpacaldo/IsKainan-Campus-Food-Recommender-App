@@ -17,7 +17,7 @@ Future<void> main() async {
 
 
 class Home extends StatelessWidget {
-  const Home({Key? key}) : super(key: key);
+  Home({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

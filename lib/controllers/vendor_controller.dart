@@ -10,8 +10,8 @@ import '../models/vendors_model.dart';
 class VendorController extends GetxController{
   final VendorRepo vendorRepo;
   VendorController({required this.vendorRepo});
-  List<dynamic> _vendorList = [];
-  List<dynamic> get vendorList =>_vendorList;
+  List<VendorModel> _vendorList = [];
+  List<VendorModel> get vendorList =>_vendorList;
 
   bool _isLoaded = false;
   bool get isLoaded => _isLoaded;
@@ -29,4 +29,15 @@ class VendorController extends GetxController{
 
     }
   }
+
+  // List<double> getPrice(VendorModel<FoodModel<dynamic>> vendorMenu) {
+  //   List<double> resultList = [];
+  //
+  //   for (List<dynamic> food in vendorMenu) {
+  //     resultList.add(food[])
+  //   }
+  //
+  //   return resultList;
+  // }
+  // }
 }

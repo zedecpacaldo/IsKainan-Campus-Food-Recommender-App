@@ -18,7 +18,7 @@ import '../food/popular_food_detail.dart';
 // Eto yung featured portion sa baba ny search button
 
 class FoodPageBody extends StatefulWidget {
-  const FoodPageBody({Key? key}) : super(key: key);
+  FoodPageBody({Key? key}) : super(key: key);
 
   @override
   State<FoodPageBody> createState() => _FoodPageBodyState();

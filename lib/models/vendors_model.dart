@@ -31,6 +31,9 @@ class VendorModel {
   late List<FoodModel> _food_model;
   List<FoodModel> get food_model =>_food_model;
 
+  late List<double> _price_range;
+  List<double> get price_range => _price_range;
+
   VendorModel(
       {required vendorId,
         required vendorName,
@@ -45,6 +48,7 @@ class VendorModel {
         required password,
         required food_model}){
     this._food_model = food_model;
+    this._price_range = food_model.map((element) => double.parse(element.foodPrice!)).toList();
   }
 
   VendorModel.fromJson(Map<String, dynamic> json) {
@@ -65,8 +69,9 @@ class VendorModel {
         _food_model.add(FoodModel.fromJson(v));
       });
     }
+    _price_range = [];
+    this._price_range = food_model.map((element) => double.parse(element.foodPrice!)).toList();
   }
-
 }
 
 class FoodModel {

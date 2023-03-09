@@ -10,7 +10,7 @@ import '../../widgets/small_text.dart';
 import 'food_page_body.dart';
 
 class MainPage extends StatefulWidget {
-  const MainPage({Key? key}) : super(key: key);
+  MainPage({Key? key}) : super(key: key);
 
   @override
   State<MainPage> createState() => _MainPageState();

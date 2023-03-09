@@ -14,7 +14,7 @@ import 'icon_and_text_widget.dart';
 
 class AppColumn extends StatelessWidget {
   final pageId;
-  const AppColumn({Key? key, required this.pageId}) : super(key: key);
+  AppColumn({Key? key, required this.pageId}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +28,7 @@ class AppColumn extends StatelessWidget {
         Row(
           children: [
             Wrap(
-                children: List.generate(5, (index) => Icon(Icons.star, color: AppColors.mainColor, size: 15,))
+                children: List.generate(4, (index) => Icon(Icons.star, color: AppColors.mainColor, size: 15,))
             ),
             SizedBox(width: Dimensions.width10,),
             SmallText(text: vendorProfile.vendorRating!),
@@ -40,7 +40,7 @@ class AppColumn extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            IconAndTextWidget(icon: Icons.local_offer_rounded, text: "₱", iconColor: AppColors.iconColor1,),
+            IconAndTextWidget(icon: Icons.local_offer_rounded, text: vendorProfile.price_range.length > 1?"₱" + (vendorProfile.price_range).reduce((a, b) => a < b ? a : b).toStringAsFixed(2) + " - ₱" + (vendorProfile.price_range).reduce((a, b) => a > b ? a : b).toStringAsFixed(2):"₱" + (vendorProfile.price_range).reduce((a, b) => a < b ? a : b).toStringAsFixed(2), iconColor: AppColors.iconColor1,),
             IconAndTextWidget(icon: Icons.location_on, text: "203 m", iconColor: AppColors.mainColor,),
             IconAndTextWidget(icon: Icons.access_time_rounded, text: "4 min", iconColor: AppColors.mainColor),
           ],
