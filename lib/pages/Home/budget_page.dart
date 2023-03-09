@@ -5,7 +5,8 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
 import '../../routes/route_helper.dart';
-
+import '../../widgets/big_text.dart';
+import '../../utils/colors.dart';
 class BudgetPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -15,9 +16,8 @@ class BudgetPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text(
-              'Enter your budget range',
-              style: TextStyle(fontSize: 20),
+            BigText(
+              text: 'Enter your budget range.',
             ),
             SizedBox(height: 20),
             Row(
@@ -64,6 +64,8 @@ class BudgetPage extends StatelessWidget {
                   onPressed: () {
                     Get.toNamed(RouteHelper.choicePage);
                   },
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: AppColors.mainColor),
                   child: const Icon(Icons.arrow_back),
                 ),
 
@@ -71,6 +73,8 @@ class BudgetPage extends StatelessWidget {
                   onPressed: () {
                     Get.toNamed(RouteHelper.addressPage);
                   },
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: AppColors.mainColor),
                   child: const Icon(Icons.arrow_forward),
                 ),
               ],

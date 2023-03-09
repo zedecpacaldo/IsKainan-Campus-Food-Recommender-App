@@ -3,6 +3,8 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
 import '../../routes/route_helper.dart';
+import '../../widgets/big_text.dart';
+import '../../utils/colors.dart';
 
 // choice page **************************************
 class ChoicePage extends StatelessWidget {
@@ -16,9 +18,8 @@ class ChoicePage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text(
-              'Which food are you looking for?',
-              style: TextStyle(fontSize: 20),
+            BigText(
+              text: 'Which food are you looking for?',
             ),
             const SizedBox(height: 24),
             SizedBox(
@@ -26,7 +27,7 @@ class ChoicePage extends StatelessWidget {
               child: TextField(
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
-                  hintText: 'Enter text',
+                  hintText: 'Enter your preferences',
                 ),
               ),
             ),
@@ -38,12 +39,15 @@ class ChoicePage extends StatelessWidget {
                   onPressed: () {
                     Get.toNamed(RouteHelper.initial);
                   },
-                  child: const Text('Return'),
+                  child: const Text('Return',
+                  style: TextStyle(color: Colors.black)),
                 ),
                 ElevatedButton(
                   onPressed: () {
                     Get.toNamed(RouteHelper.budgetPage);
                   },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: AppColors.mainColor),
                   child: const Icon(Icons.arrow_forward),
                 ),
               ],
