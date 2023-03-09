@@ -49,16 +49,30 @@ class _MainPageState extends State<MainPage> {
                     Center(
                       child: Row(
                         children: [
-                          AppIcon(icon: Icons.search, iconColor: Colors.white, backgroundColor: AppColors.mainColor, size: Dimensions.height30 + Dimensions.height15),
+                          SizedBox(width: Dimensions.height45, height: Dimensions.height45,
+                            child:FittedBox(
+                                child:FloatingActionButton(
+                                  onPressed: (){},
+                                  backgroundColor: AppColors.mainColor,
+                                  elevation: 0,
+                                  child: Icon(Icons.search, color: Colors.white, size: Dimensions.iconSize24,),
+                                )
+                            ),
+                          ),
                           SizedBox(width: Dimensions.width10,),
                           Container(
-                              width: Dimensions.height45,
-                              height: Dimensions.height45,
-                              child: Icon(Icons.food_bank, color: Colors.white, size: Dimensions.iconSize24,),                                                         // Search Icon
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(Dimensions.radius15),
-                                  color: AppColors.mainColor,
-                              )
+                            width: Dimensions.height45,
+                            height: Dimensions.height45,
+                            child: ElevatedButton(
+                              onPressed: () {},
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: AppColors.mainColor,
+                                shape: RoundedRectangleBorder(borderRadius:BorderRadius.circular(Dimensions.radius15)),
+                                padding: EdgeInsets.zero,
+                                elevation: 0,
+                              ),
+                              child: Icon(Icons.food_bank_outlined, color: Colors.white, size: Dimensions.iconSize24,),
+                            ),
                           ),
                         ],
                       ),
@@ -66,7 +80,7 @@ class _MainPageState extends State<MainPage> {
                   ],
                 )
             ),
-            ),
+          ),
           // Showing the Body
           Expanded(child: SingleChildScrollView(
             child: FoodPageBody(),
