@@ -22,6 +22,7 @@ class AppColumn extends StatelessWidget {
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         BigText(text: vendorProfile.vendorName!, size: Dimensions.font26,),
         SizedBox(height: Dimensions.height10,),
@@ -42,7 +43,7 @@ class AppColumn extends StatelessWidget {
           children: [
             IconAndTextWidget(icon: Icons.local_offer_rounded, text: vendorProfile.price_range.length > 1?"₱" + (vendorProfile.price_range).reduce((a, b) => a < b ? a : b).toStringAsFixed(2) + " - ₱" + (vendorProfile.price_range).reduce((a, b) => a > b ? a : b).toStringAsFixed(2):"₱" + (vendorProfile.price_range).reduce((a, b) => a < b ? a : b).toStringAsFixed(2), iconColor: AppColors.iconColor1,),
             IconAndTextWidget(icon: Icons.location_on, text: "203 m", iconColor: AppColors.mainColor,),
-            IconAndTextWidget(icon: Icons.access_time_rounded, text: "4 min", iconColor: AppColors.mainColor),
+            IconAndTextWidget(icon: vendorProfile.isGcash!?Icons.attach_money_rounded:Icons.money_off_rounded, iconColor: vendorProfile.isGcash!?Colors.blue:AppColors.mainColor, text: "", ),
           ],
         ),
       ],

@@ -239,7 +239,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                     ]
                 ),
               child: Container(
-                padding: EdgeInsets.only(top: Dimensions.height10, left: Dimensions.width15, right: Dimensions.width15),
+                padding: EdgeInsets.only(top: Dimensions.height10, left: Dimensions.width15, right: Dimensions.width15, bottom: Dimensions.height10),
                 child: AppColumn(pageId: index,),
               )
             ),

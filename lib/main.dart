@@ -10,6 +10,7 @@ import 'helper/dependencies.dart' as dep;
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Future.delayed(Duration(milliseconds: 1000));
   await dep.init();
 
   runApp(Home());
