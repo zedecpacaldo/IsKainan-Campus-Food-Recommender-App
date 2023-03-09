@@ -55,7 +55,7 @@ class _MainPageState extends State<MainPage> {
                                   onPressed: (){},
                                   backgroundColor: AppColors.mainColor,
                                   elevation: 0,
-                                  child: Icon(Icons.search, color: Colors.white, size: Dimensions.iconSize24,),
+                                  child: Icon(Icons.search, color: Colors.white, size: Dimensions.iconSize24*1.5,),
                                 )
                             ),
                           ),
@@ -71,7 +71,7 @@ class _MainPageState extends State<MainPage> {
                                 padding: EdgeInsets.zero,
                                 elevation: 0,
                               ),
-                              child: Icon(Icons.food_bank_outlined, color: Colors.white, size: Dimensions.iconSize24,),
+                              child: Icon(Icons.food_bank_outlined, color: Colors.white, size: Dimensions.iconSize24*1.3,),
                             ),
                           ),
                         ],
