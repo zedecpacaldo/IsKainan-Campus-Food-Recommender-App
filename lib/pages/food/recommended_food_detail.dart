@@ -117,9 +117,9 @@ class RecommendedFoodDetail extends StatelessWidget {
                 ),
                 Container(
                   padding: EdgeInsets.only(top: Dimensions.height20, bottom: Dimensions.height20, left: Dimensions.width20, right: Dimensions.width20),
-                  child: BigText(text: "Find on Map", color: Colors.white,),
+                  child: BigText(text: "Find on Map", color: Colors.white, size: Dimensions.font20,),
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(Dimensions.radius20/2),
+                      borderRadius: BorderRadius.circular(Dimensions.radius20),
                       color: AppColors.mainColor
                   ),
                 )
