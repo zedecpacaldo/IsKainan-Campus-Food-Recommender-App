@@ -56,9 +56,9 @@ class _FoodPageBodyState extends State<FoodPageBody> {
             // Press Transition
             child: PageView.builder(
                 controller: pageController,
-                itemCount: vendor.vendorVendorList.length,                                                 // Ilang ididisplay sa relevant food
+                itemCount: vendor.vendorList.length,                                                 // Ilang ididisplay sa relevant food
                 itemBuilder: (context, position){
-                  return _buildPageItem(position,  vendor.vendorVendorList[position]);
+                  return _buildPageItem(position,  vendor.vendorList[position]);
                 }),
 
           ):CircularProgressIndicator(
@@ -67,7 +67,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
         }),
         GetBuilder<VendorController>(builder: (vendor){
           return DotsIndicator(                                                              // Page Dots animation
-            dotsCount: vendor.vendorVendorList.isEmpty?1:vendor.vendorVendorList.length,
+            dotsCount: vendor.vendorList.isEmpty?1:vendor.vendorList.length,
             position: _currPageValue,
             decorator: DotsDecorator(
               activeColor: AppColors.iconColor1,
@@ -104,7 +104,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
           return vendor.isLoaded?ListView.builder(
               physics: NeverScrollableScrollPhysics(),
               shrinkWrap: true,
-              itemCount: vendor.vendorVendorList.length,
+              itemCount: vendor.vendorList.length,
               itemBuilder: (context, index) {
                 return GestureDetector(
                   onTap: (){
@@ -123,7 +123,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                               color: Colors.white38,
                               image: DecorationImage(
                                 fit: BoxFit.cover,
-                                image: AssetImage(vendor.vendorVendorList[index].food_model[0].foodImg!),
+                                image: AssetImage(vendor.vendorList[index].food_model[0].foodImg!),
                               )
                           ),
                         ),
@@ -143,13 +143,13 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  BigText(text: vendor.vendorVendorList[index].food_model[0].foodName!),
+                                  BigText(text: vendor.vendorList[index].food_model[0].foodName!),
                                   SizedBox(height: Dimensions.height10),
-                                  SmallText(text: (vendor.vendorVendorList[index].vendorName! + ", " + vendor.vendorVendorList[index].vendorLocation!)),
+                                  SmallText(text: (vendor.vendorList[index].vendorName! + ", " + vendor.vendorList[index].vendorLocation!)),
                                   SizedBox(height: Dimensions.height10),
                                   Row(
                                     children: [
-                                      IconAndTextWidget(icon: Icons.local_offer_rounded, text: "₱" + vendor.vendorVendorList[index].food_model[0].foodPrice.toString(), iconColor: AppColors.iconColor1,),
+                                      IconAndTextWidget(icon: Icons.local_offer_rounded, text: "₱" + vendor.vendorList[index].food_model[0].foodPrice.toString(), iconColor: AppColors.iconColor1,),
                                       SizedBox(width: Dimensions.width10),
                                       IconAndTextWidget(icon: Icons.location_on, text: "560 m", iconColor: AppColors.mainColor,)
                                     ],

@@ -18,7 +18,7 @@ class AppColumn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var vendorProfile = Get.find<VendorController>().vendorVendorList[pageId];
+    var vendorProfile = Get.find<VendorController>().vendorList[pageId];
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [

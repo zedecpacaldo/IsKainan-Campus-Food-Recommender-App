@@ -17,7 +17,7 @@ class RecommendedFoodDetail extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var foodProfile = Get.find<VendorController>().vendorVendorList[pageId].food_model[0];
+    var foodProfile = Get.find<VendorController>().vendorList[pageId].food_model[0];
     return Scaffold(
       backgroundColor: Colors.white,
       body: CustomScrollView(

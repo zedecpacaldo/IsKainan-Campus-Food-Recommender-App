@@ -20,7 +20,7 @@ class PopularFoodDetail extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var vendorProfile = Get.find<VendorController>().vendorVendorList[pageId];
+    var vendorProfile = Get.find<VendorController>().vendorList[pageId];
     return Scaffold(
       backgroundColor: Colors.white,
       body: Stack(
