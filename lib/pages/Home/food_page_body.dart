@@ -13,8 +13,6 @@ import '../../utils/dimensions.dart';
 import '../../widgets/app_column.dart';
 import 'package:get/get.dart';
 
-import '../food/popular_food_detail.dart';
-
 // Eto yung featured portion sa baba ny search button
 
 class FoodPageBody extends StatefulWidget {
@@ -197,7 +195,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
         children: [
           GestureDetector(
             onTap: (){
-              Get.toNamed(RouteHelper.getVendor(index));
+              Get.toNamed(RouteHelper.getVendorDetail(index));
             },
             child: Container(                                                      // Food pics
                 height: Dimensions.pageViewContainer,

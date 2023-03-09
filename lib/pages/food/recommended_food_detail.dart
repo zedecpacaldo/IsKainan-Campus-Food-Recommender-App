@@ -11,6 +11,8 @@ import '../../utils/dimensions.dart';
 import '../../widgets/big_text.dart';
 import '../../widgets/expandable_text_widget.dart';
 
+
+
 class RecommendedFoodDetail extends StatelessWidget {
   final int pageId;
   RecommendedFoodDetail({Key? key, required this.pageId}) : super(key: key);
@@ -35,7 +37,7 @@ class RecommendedFoodDetail extends StatelessWidget {
                     child: AppIcon(icon: Icons.clear)),
                 GestureDetector(
                     onTap: (){
-                      Get.toNamed(RouteHelper.getVendor(pageId));
+                      Get.toNamed(RouteHelper.getVendorDetail(pageId));
                     },
                     child: AppIcon(icon: Icons.store)),
               ],

@@ -10,7 +10,7 @@ import '../pages/Home/address_page.dart';
 import '../pages/Home/budget_page.dart';
 import '../pages/Home/survey.dart';
 import '../pages/Home/vendor_page.dart';
-import '../pages/food/popular_food_detail.dart';
+import '../pages/food/vendor_detail.dart';
 
 class RouteHelper{
   static const String initial = "/";                // homepage
@@ -19,8 +19,8 @@ class RouteHelper{
   static const String addressPage = '/address-page'; // address page
   static const String allergiesPage = '/allergies-page'; // allergiespage
   static const String vendorLoginPage = '/vendor-login-page'; //vendor login page
-  static const String vendor = "/vendor";           // vendor page
   static const String foodDetail = "/food-detail";  // food detail
+  static const String vendorDetail = "/vendor-detail";  // vendor detail page
 
   static String getInitial()=>'$initial';
   static String getChoicePage()=>'$choicePage';
@@ -28,7 +28,7 @@ class RouteHelper{
   static String getAddressPage()=>'$addressPage';
   static String getAllergiesPage()=>'$allergiesPage';
   static String getVendorLoginPage()=>'$vendorLoginPage';
-  static String getVendor(int pageId)=>'$vendor?pageId=$pageId';
+  static String getVendorDetail(int pageId)=>'$vendorDetail?pageId=$pageId';
   static String getFoodDetail(int pageId)=>'$foodDetail?pageId=$pageId';
 
   static List<GetPage> routes=[
@@ -44,9 +44,9 @@ class RouteHelper{
 
     GetPage(name: vendorLoginPage, page: ()=>VendorLoginPage()),
 
-    GetPage(name: vendor, page:(){
+    GetPage(name: vendorDetail, page:(){
       var pageId = Get.parameters['pageId'];
-      return PopularFoodDetail(pageId: int.parse(pageId!));
+      return VendorDetail(pageId: int.parse(pageId!));
       },
     ),
 
