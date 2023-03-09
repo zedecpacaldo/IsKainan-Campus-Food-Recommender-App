@@ -74,7 +74,7 @@ class VendorDetail extends StatelessWidget {
                   itemBuilder: (context, index) {
                     return GestureDetector(
                       onTap: (){
-                        Get.toNamed(RouteHelper.getFoodDetail(index));
+                        Get.toNamed(RouteHelper.getFoodDetail(pageId, index));
                       },
                       child: Container(
                         margin: EdgeInsets.only(left: Dimensions.width20, right: Dimensions.width20, bottom: Dimensions.height10),

@@ -6,6 +6,7 @@ import 'package:iskainan/controllers/vendor_controller.dart';
 import 'package:iskainan/models/vendors_model.dart';
 import 'package:iskainan/widgets/big_text.dart';
 import 'package:iskainan/widgets/icon_and_text_widget.dart';
+import 'package:iskainan/widgets/rectangle_icon_widget.dart';
 import 'package:iskainan/widgets/small_text.dart';
 import '../../routes/route_helper.dart';
 import '../../utils/colors.dart';
@@ -91,7 +92,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
               SizedBox(width: Dimensions.width10,),
               Container(
                 margin: const EdgeInsets.only(bottom: 2),
-                child: SmallText(text: "Food pairing", color: Colors.black26),
+                child: SmallText(text: "Street Food", color: Colors.black26),
               )
             ],
           ),
@@ -106,7 +107,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
               itemBuilder: (context, index) {
                 return GestureDetector(
                   onTap: (){
-                    Get.toNamed(RouteHelper.getFoodDetail(index));
+                    Get.toNamed(RouteHelper.getFoodDetail(index, 0));
                   },
                   child: Container(
                     margin: EdgeInsets.only(left: Dimensions.width20, right: Dimensions.width20, bottom: Dimensions.height10),
@@ -143,13 +144,16 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                                 children: [
                                   BigText(text: vendor.vendorList[index].food_model[0].foodName!),
                                   SizedBox(height: Dimensions.height10),
-                                  SmallText(text: (vendor.vendorList[index].vendorName! + ", " + vendor.vendorList[index].vendorLocation!)),
+                                  SmallText(text: (vendor.vendorList[index].vendorName! + ", " + vendor.vendorList[index].vendorLocation!), isOneLine: true),
                                   SizedBox(height: Dimensions.height10),
                                   Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                     children: [
                                       IconAndTextWidget(icon: Icons.local_offer_rounded, text: "₱" + vendor.vendorList[index].food_model[0].foodPrice.toString(), iconColor: AppColors.iconColor1,),
                                       SizedBox(width: Dimensions.width10),
-                                      IconAndTextWidget(icon: Icons.location_on, text: "560 m", iconColor: AppColors.mainColor,)
+                                      IconAndTextWidget(icon: Icons.location_on, text: "560 m", iconColor: AppColors.mainColor,),
+                                      SizedBox(width: Dimensions.width10,),
+                                      RectangleIconWidget(text: "AVAILABLE", iconColor: Colors.green, isActivated: vendor.vendorList[index].food_model[0].isAvailable!)
                                     ],
                                   )
                                 ],
@@ -215,7 +219,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
           Align(
             alignment: Alignment.bottomCenter,
             child: Container(                                             // Food details
-                height: Dimensions.pageViewTextContainer,
+                height: Dimensions.pageViewTextContainer+5,
                 margin: EdgeInsets.only(left: Dimensions.width30, right: Dimensions.width30, bottom: Dimensions.height30),
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(Dimensions.radius20),

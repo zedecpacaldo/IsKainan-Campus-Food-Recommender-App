@@ -29,7 +29,7 @@ class RouteHelper{
   static String getAllergiesPage()=>'$allergiesPage';
   static String getVendorLoginPage()=>'$vendorLoginPage';
   static String getVendorDetail(int pageId)=>'$vendorDetail?pageId=$pageId';
-  static String getFoodDetail(int pageId)=>'$foodDetail?pageId=$pageId';
+  static String getFoodDetail(int pageId, int foodId)=>'$foodDetail?pageId=$pageId&foodId=$foodId';
 
   static List<GetPage> routes=[
     GetPage(name: initial, page: ()=> MainPage()),
@@ -52,7 +52,8 @@ class RouteHelper{
 
     GetPage(name: foodDetail, page:(){
       var pageId = Get.parameters['pageId'];
-      return RecommendedFoodDetail(pageId: int.parse(pageId!));
+      var foodId = Get.parameters['foodId'];
+      return RecommendedFoodDetail(pageId: int.parse(pageId!), foodId: int.parse(foodId!));
     },
     ),
   ];

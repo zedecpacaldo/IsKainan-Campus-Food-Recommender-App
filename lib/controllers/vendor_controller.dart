@@ -73,7 +73,7 @@ class VendorController extends GetxController{
                 "food_name": "Siomai",
                 "food_price": "15.00",
                 "food_img": "assets/images/siomai.png",
-                "is_available": true,
+                "is_available": false,
                 "is_spicy": false,
                 "is_shellfish": false,
                 "is_peanut": false,

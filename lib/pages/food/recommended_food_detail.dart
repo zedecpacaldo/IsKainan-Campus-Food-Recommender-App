@@ -15,11 +15,12 @@ import '../../widgets/expandable_text_widget.dart';
 
 class RecommendedFoodDetail extends StatelessWidget {
   final int pageId;
-  RecommendedFoodDetail({Key? key, required this.pageId}) : super(key: key);
+  final int foodId;
+  RecommendedFoodDetail({Key? key, required this.pageId, required this.foodId}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    var foodProfile = Get.find<VendorController>().vendorList[pageId].food_model[0];
+    var foodProfile = Get.find<VendorController>().vendorList[pageId].food_model[foodId];
     return Scaffold(
       backgroundColor: Colors.white,
       body: CustomScrollView(

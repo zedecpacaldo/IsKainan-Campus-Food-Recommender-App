@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:iskainan/widgets/rectangle_icon_widget.dart';
 import 'package:iskainan/widgets/small_text.dart';
 
 import '../controllers/vendor_controller.dart';
@@ -43,14 +44,7 @@ class AppColumn extends StatelessWidget {
           children: [
             IconAndTextWidget(icon: Icons.local_offer_rounded, text: vendorProfile.price_range.length > 1?"₱" + (vendorProfile.price_range).reduce((a, b) => a < b ? a : b).toStringAsFixed(2) + " - ₱" + (vendorProfile.price_range).reduce((a, b) => a > b ? a : b).toStringAsFixed(2):"₱" + (vendorProfile.price_range).reduce((a, b) => a < b ? a : b).toStringAsFixed(2), iconColor: AppColors.iconColor1,),
             IconAndTextWidget(icon: Icons.location_on, text: "203 m", iconColor: AppColors.mainColor,),
-            Container(
-              padding: EdgeInsets.only(top: Dimensions.height10/2, bottom: Dimensions.height10/2, left: Dimensions.width10/2, right: Dimensions.width10/2),
-              child: BigText(text: "GCASH", color: Colors.white, size: Dimensions.font20/2,),
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(Dimensions.radius15/4),
-                  color: vendorProfile.isGcash!?Colors.blue:Colors.grey
-              ),
-            )
+            RectangleIconWidget(text: "GCASH", iconColor: Colors.blueAccent, isActivated: vendorProfile.isGcash!)
           ],
         ),
       ],
