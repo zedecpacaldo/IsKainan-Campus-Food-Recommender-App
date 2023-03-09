@@ -1,7 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:iskainan/widgets/app_icon.dart';
 
+import '../../routes/route_helper.dart';
 import '../../utils/colors.dart';
 import '../../utils/dimensions.dart';
 import '../../widgets/big_text.dart';
@@ -36,15 +39,6 @@ class _MainPageState extends State<MainPage> {
                             padding: EdgeInsets.only(left: Dimensions.width10),
                             child: Image.asset('assets/images/logo.png', scale: 13,))
                       ],
-                      // children: [
-                      //   BigText(text: "IsKainan!", color: AppColors.mainColor),                                                  // Top Left Corner
-                      //   Row(
-                      //     children: [
-                      //       SmallText(text: "Apacible St.", color: Colors.black54,),                                              // Small Word sa top corner
-                      //       Icon(Icons.arrow_drop_down_rounded),
-                      //     ],
-                      //   )
-                      // ],
                     ),
                     Center(
                       child: Row(
@@ -52,7 +46,9 @@ class _MainPageState extends State<MainPage> {
                           SizedBox(width: Dimensions.height45, height: Dimensions.height45,
                             child:FittedBox(
                                 child:FloatingActionButton(
-                                  onPressed: (){},
+                                  onPressed: (){
+                                    Get.toNamed(RouteHelper.choicePage);
+                                  },
                                   backgroundColor: AppColors.mainColor,
                                   elevation: 0,
                                   child: Icon(Icons.search, color: Colors.white, size: Dimensions.iconSize24*1.5,),
@@ -64,7 +60,9 @@ class _MainPageState extends State<MainPage> {
                             width: Dimensions.height45,
                             height: Dimensions.height45,
                             child: ElevatedButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                Get.toNamed(RouteHelper.vendorLoginPage);
+                              },
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: AppColors.mainColor,
                                 shape: RoundedRectangleBorder(borderRadius:BorderRadius.circular(Dimensions.radius15)),

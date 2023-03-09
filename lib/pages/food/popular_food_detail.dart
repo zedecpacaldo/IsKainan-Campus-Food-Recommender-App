@@ -51,7 +51,7 @@ class PopularFoodDetail extends StatelessWidget {
                 children: [
                   GestureDetector(
                     onTap:(){
-                      Get.toNamed(RouteHelper.initial);
+                      Navigator.pop(context);
                     },
                     child: AppIcon(icon: Icons.close)),
                   AppIcon(icon: Icons.hotel_class)

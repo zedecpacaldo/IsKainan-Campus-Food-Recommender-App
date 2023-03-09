@@ -30,7 +30,7 @@ class RecommendedFoodDetail extends StatelessWidget {
               children: [
                 GestureDetector(
                     onTap: (){
-                      Get.toNamed(RouteHelper.initial);
+                      Navigator.pop(context);
                     },
                     child: AppIcon(icon: Icons.clear)),
                 GestureDetector(
