@@ -202,19 +202,22 @@ class _FoodPageBodyState extends State<FoodPageBody> {
             onTap: (){
               Get.toNamed(RouteHelper.getVendorDetail(index));
             },
-            child: Container(                                                      // Food pics
-                height: Dimensions.pageViewContainer,
-                margin: EdgeInsets.only(left: Dimensions.width10, right: Dimensions.width10),
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(Dimensions.radius30),
-                    color: index.isEven?Color(0xFF69c5df):Color(0xFF9294cc),
-                    image: DecorationImage(
-                      fit: BoxFit.cover,
-                      image: AssetImage(
-                          vendor.vendorImg!
-                      ),
-                    )
-                )
+            child: Opacity(
+              opacity: vendor.isOpen!?1:0.2,
+              child: Container(                                                      // Food pics
+                  height: Dimensions.pageViewContainer,
+                  margin: EdgeInsets.only(left: Dimensions.width10, right: Dimensions.width10),
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(Dimensions.radius30),
+                      color: index.isEven?Color(0xFF69c5df):Color(0xFF9294cc),
+                      image: DecorationImage(
+                        fit: BoxFit.cover,
+                        image: AssetImage(
+                            vendor.vendorImg!
+                        ),
+                      )
+                  )
+              ),
             ),
           ),
           Align(
@@ -241,9 +244,12 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                       )
                     ]
                 ),
-              child: Container(
-                padding: EdgeInsets.only(top: Dimensions.height10, left: Dimensions.width15, right: Dimensions.width15, bottom: Dimensions.height10),
-                child: AppColumn(pageId: index,),
+              child: Opacity(
+                opacity: vendor.isOpen!?1:0.2,
+                child: Container(
+                  padding: EdgeInsets.only(top: Dimensions.height10, left: Dimensions.width15, right: Dimensions.width15, bottom: Dimensions.height10),
+                  child: AppColumn(pageId: index,),
+                ),
               )
             ),
           ),
