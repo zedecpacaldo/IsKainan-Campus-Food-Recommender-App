@@ -60,8 +60,17 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                   return _buildPageItem(position,  vendor.vendorList[position]);
                 }),
 
-          ):CircularProgressIndicator(
-            color: AppColors.mainColor,
+          ):Container(
+            height: Dimensions.pageView,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                CircularProgressIndicator(
+                  color: AppColors.mainColor,
+                ),
+              ],
+            ),
           );
         }),
         GetBuilder<VendorController>(builder: (vendor){
@@ -166,9 +175,19 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                     ),
                   ),
                 );
-              }):CircularProgressIndicator(
+              }):Container(
+                width: Dimensions.screenWidth,
+                height: Dimensions.screenWidth/2,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    CircularProgressIndicator(
             color: AppColors.mainColor,
-          );
+          ),
+                  ],
+                ),
+              );
         })
       ],
     );
