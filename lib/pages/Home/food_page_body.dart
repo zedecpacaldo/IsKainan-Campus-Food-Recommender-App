@@ -107,61 +107,62 @@ class _FoodPageBodyState extends State<FoodPageBody> {
               itemBuilder: (context, index) {
                 return GestureDetector(
                   onTap: (){
-                    Get.toNamed(RouteHelper.getFoodDetail(index, 0));
+                    Get.toNamed(RouteHelper.getFoodDetail(index, vendor.vendorList[index].food_model.length-1));
                   },
-                  child: Container(
-                    margin: EdgeInsets.only(left: Dimensions.width20, right: Dimensions.width20, bottom: Dimensions.height10),
-                    child: Row(
-                      children: [
-                        // image section
-                        Container(
-                          width: Dimensions.listViewImgSize,
-                          height: Dimensions.listViewImgSize,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(Dimensions.radius20),
-                              color: Colors.white38,
-                              image: DecorationImage(
-                                fit: BoxFit.cover,
-                                image: AssetImage(vendor.vendorList[index].food_model[0].foodImg!),
-                              )
-                          ),
-                        ),
-                        Expanded(
-                          child: Container(
-                            height: Dimensions.listViewTextContSize,
+                  child: Opacity(
+                    opacity: vendor.vendorList[index].food_model[vendor.vendorList[index].food_model.length-1].isAvailable!?1:0.2,
+                    child: Container(
+                      margin: EdgeInsets.only(left: Dimensions.width20, right: Dimensions.width20, bottom: Dimensions.height10),
+                      child: Row(
+                        children: [
+                          // image section
+                          Container(
+                            width: Dimensions.listViewImgSize,
+                            height: Dimensions.listViewImgSize,
                             decoration: BoxDecoration(
-                              borderRadius: BorderRadius.only(
-                                  topRight: Radius.circular(Dimensions.radius20),
-                                  bottomRight: Radius.circular(Dimensions.radius20)
-                              ),
-                              color: Colors.white,
+                                borderRadius: BorderRadius.circular(Dimensions.radius20),
+                                color: Colors.white38,
+                                image: DecorationImage(
+                                  fit: BoxFit.cover,
+                                  image: AssetImage(vendor.vendorList[index].food_model[vendor.vendorList[index].food_model.length-1].foodImg!),
+                                )
                             ),
-                            child:
-                            Padding(padding: EdgeInsets.only(left: Dimensions.width10, right: Dimensions.width10),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  BigText(text: vendor.vendorList[index].food_model[0].foodName!),
-                                  SizedBox(height: Dimensions.height10),
-                                  SmallText(text: (vendor.vendorList[index].vendorName! + ", " + vendor.vendorList[index].vendorLocation!), isOneLine: true),
-                                  SizedBox(height: Dimensions.height10),
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      IconAndTextWidget(icon: Icons.local_offer_rounded, text: "₱" + vendor.vendorList[index].food_model[0].foodPrice.toString(), iconColor: AppColors.iconColor1,),
-                                      SizedBox(width: Dimensions.width10),
-                                      IconAndTextWidget(icon: Icons.location_on, text: "560 m", iconColor: AppColors.mainColor,),
-                                      SizedBox(width: Dimensions.width10,),
-                                      RectangleIconWidget(text: "AVAILABLE", iconColor: Colors.green, isActivated: vendor.vendorList[index].food_model[0].isAvailable!)
-                                    ],
-                                  )
-                                ],
+                          ),
+                          Expanded(
+                            child: Container(
+                              height: Dimensions.listViewTextContSize,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.only(
+                                    topRight: Radius.circular(Dimensions.radius20),
+                                    bottomRight: Radius.circular(Dimensions.radius20)
+                                ),
+                                color: Colors.white,
+                              ),
+                              child:
+                              Padding(padding: EdgeInsets.only(left: Dimensions.width10, right: Dimensions.width10),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    BigText(text: vendor.vendorList[index].food_model[vendor.vendorList[index].food_model.length-1].foodName!,),
+                                    SizedBox(height: Dimensions.height10),
+                                    SmallText(text: (vendor.vendorList[index].vendorName! + ", " + vendor.vendorList[index].vendorLocation!), isOneLine: true),
+                                    SizedBox(height: Dimensions.height10),
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.start,
+                                      children: [
+                                        IconAndTextWidget(icon: Icons.local_offer_rounded, text: "₱" + vendor.vendorList[index].food_model[vendor.vendorList[index].food_model.length-1].foodPrice.toString(), iconColor: AppColors.iconColor1,),
+                                        SizedBox(width: Dimensions.width10),
+                                        IconAndTextWidget(icon: Icons.location_on, text: "560 m", iconColor: AppColors.mainColor,),
+                                      ],
+                                    )
+                                  ],
+                                ),
                               ),
                             ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                 );

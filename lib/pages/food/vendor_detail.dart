@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_state_manager/src/simple/get_state.dart';
+import 'package:iskainan/widgets/rectangle_icon_widget.dart';
 
 import '../../controllers/vendor_controller.dart';
 import '../../routes/route_helper.dart';
@@ -22,6 +23,20 @@ class VendorDetail extends StatelessWidget {
   Widget build(BuildContext context) {
     var vendorProfile = Get.find<VendorController>().vendorList[pageId];
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        heroTag: "vendor_detail_page",            // always ake heroTag unique per floating action button please thanks
+        onPressed: (){},
+        backgroundColor: AppColors.mainColor,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Icon(Icons.navigation),
+            SmallText(text: "GO", color: Colors.white,)
+          ],
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       backgroundColor: Colors.white,
       body: CustomScrollView(
         slivers: [
@@ -40,18 +55,18 @@ class VendorDetail extends StatelessWidget {
               ],
             ),
             bottom: PreferredSize(
-            preferredSize: Size.fromHeight(20),
-            child: Container(
-              child: AppColumn(pageId: pageId!,),
-              width: double.maxFinite,
-              padding: EdgeInsets.only(top: Dimensions.width20, left: Dimensions.width20, right: Dimensions.width20),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(Dimensions.radius20),
-                  topRight: Radius.circular(Dimensions.radius20)
-                )
-              ),
+              preferredSize: Size.fromHeight(20),
+              child: Container(
+                child: AppColumn(pageId: pageId!,),
+                width: double.maxFinite,
+                padding: EdgeInsets.only(top: Dimensions.width20, left: Dimensions.width20, right: Dimensions.width20),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(Dimensions.radius20),
+                    topRight: Radius.circular(Dimensions.radius20)
+                  )
+                ),
               )
             ),
             pinned: true,
@@ -76,52 +91,57 @@ class VendorDetail extends StatelessWidget {
                       onTap: (){
                         Get.toNamed(RouteHelper.getFoodDetail(pageId, index));
                       },
-                      child: Container(
-                        margin: EdgeInsets.only(left: Dimensions.width20, right: Dimensions.width20, bottom: Dimensions.height10),
-                        child: Row(
-                          children: [
-                            // image section
-                            Container(
-                              width: Dimensions.listViewImgSize,
-                              height: Dimensions.listViewImgSize,
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(Dimensions.radius20),
-                                  color: Colors.white,
-                                  image: DecorationImage(
-                                    fit: BoxFit.cover,
-                                    image: AssetImage(vendorProfile.food_model[index].foodImg!),
-                                  )
-                              ),
-                            ),
-                            Expanded(
-                              child: Container(
-                                height: Dimensions.listViewTextContSize,
+                      child: Opacity(
+                        opacity: vendorProfile.food_model[index].isAvailable!?1:0.2,
+                        child: Container(
+                          margin: EdgeInsets.only(left: Dimensions.width20, right: Dimensions.width20, bottom: Dimensions.height10),
+                          child: Row(
+                            children: [
+                              // image section
+                              Container(
+                                width: Dimensions.listViewImgSize,
+                                height: Dimensions.listViewImgSize,
                                 decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.only(
-                                      topRight: Radius.circular(Dimensions.radius20),
-                                      bottomRight: Radius.circular(Dimensions.radius20)
-                                  ),
-                                  color: Colors.white,
+                                    borderRadius: BorderRadius.circular(Dimensions.radius20),
+                                    color: Colors.white,
+                                    image: DecorationImage(
+                                      fit: BoxFit.cover,
+                                      image: AssetImage(vendorProfile.food_model[index].foodImg!),
+                                    )
                                 ),
-                                child:
-                                Padding(padding: EdgeInsets.only(left: Dimensions.width10, right: Dimensions.width10),
-                                  child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      BigText(text: vendorProfile.food_model[index].foodName!),
-                                      SizedBox(height: Dimensions.height10),
-                                      Row(
-                                        children: [
-                                          IconAndTextWidget(icon: Icons.local_offer_rounded, text: "₱" + vendorProfile.food_model[index].foodPrice.toString(), iconColor: AppColors.iconColor1,),
-                                        ],
-                                      )
-                                    ],
+                              ),
+                              Expanded(
+                                child: Container(
+                                  height: Dimensions.listViewTextContSize,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.only(
+                                        topRight: Radius.circular(Dimensions.radius20),
+                                        bottomRight: Radius.circular(Dimensions.radius20)
+                                    ),
+                                    color: Colors.white,
+                                  ),
+                                  child:
+                                  Padding(padding: EdgeInsets.only(left: Dimensions.width10, right: Dimensions.width10),
+                                    child: Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      mainAxisAlignment: MainAxisAlignment.start,
+                                      children: [
+                                        SmallText(text: vendorProfile.food_model[index].foodName!, size: Dimensions.font20,),
+                                        SizedBox(height: Dimensions.height10),
+                                        BigText(text: "₱" + vendorProfile.food_model[index].foodPrice.toString(), size: Dimensions.font16,),
+                                        SizedBox(height: Dimensions.height10),
+                                        Row(
+                                          children: [
+                                            vendorProfile.food_model[index].isSpicy!?RectangleIconWidget(text: "SPICY", iconColor: Colors.red[900]!, isActivated: vendorProfile.food_model[index].isSpicy!):SmallText(text: ""),
+                                          ],
+                                        )
+                                      ],
+                                    ),
                                   ),
                                 ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ),
                     );

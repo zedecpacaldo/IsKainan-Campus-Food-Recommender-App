@@ -216,6 +216,58 @@ class VendorController extends GetxController{
                 "is_milk": false,
                 "is_fish": false,
                 "is_soy": false
+              },
+              {
+                "food_id": 1,
+                "food_name": "Reuben Hotdog",
+                "food_price": "89.00",
+                "food_img": "assets/images/hotdog.png",
+                "is_available": true,
+                "is_spicy": true,
+                "is_shellfish": false,
+                "is_peanut": false,
+                "is_milk": false,
+                "is_fish": false,
+                "is_soy": false
+              },
+              {
+                "food_id": 2,
+                "food_name": "French Onion Rings",
+                "food_price": "49.00",
+                "food_img": "assets/images/onionrings.png",
+                "is_available": true,
+                "is_spicy": false,
+                "is_shellfish": false,
+                "is_peanut": false,
+                "is_milk": false,
+                "is_fish": false,
+                "is_soy": false
+              },
+              {
+                "food_id": 3,
+                "food_name": "Shawarma Rice",
+                "food_price": "99.00",
+                "food_img": "assets/images/shawarmarice.png",
+                "is_available": true,
+                "is_spicy": true,
+                "is_shellfish": false,
+                "is_peanut": false,
+                "is_milk": false,
+                "is_fish": false,
+                "is_soy": false
+              },
+              {
+                "food_id": 4,
+                "food_name": "Chicken Tonkatsu",
+                "food_price": "109.00",
+                "food_img": "assets/images/tonkatsu.png",
+                "is_available": true,
+                "is_spicy": false,
+                "is_shellfish": false,
+                "is_peanut": false,
+                "is_milk": false,
+                "is_fish": false,
+                "is_soy": false
               }
             ]
           }
