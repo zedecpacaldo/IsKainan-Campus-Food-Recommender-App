@@ -50,8 +50,9 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          ScaleTransition(scale: animation,
-          child: Center(child: Image.asset('assets/images/logo.png', width: Dimensions.splashImg,)))
+          FadeTransition(
+              opacity: animation,
+              child: Center(child: Image.asset('assets/images/logo.png', width: Dimensions.splashImg,)))
         ],
       ),
     );

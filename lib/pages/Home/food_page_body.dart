@@ -59,8 +59,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                 itemCount: vendor.vendorList.length,                                                 // Ilang ididisplay sa relevant food
                 itemBuilder: (context, position){
                   return _buildPageItem(position,  vendor.vendorList[position]);
-                }),
-
+                })
           ):Container(
             height: Dimensions.pageView,
             child: Column(

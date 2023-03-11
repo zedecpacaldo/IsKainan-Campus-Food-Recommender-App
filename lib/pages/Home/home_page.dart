@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:iskainan/main.dart';
+import 'package:iskainan/pages/Home/vendor_list.dart';
 import 'package:iskainan/widgets/big_text.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
@@ -81,9 +82,9 @@ class _HomePageState extends State<HomePage> {
   List<Widget> _buildScreens() {
     return [
       MainPage(),
-      Container(child: Center(child: BigText(text: "History?"))),
-      Container(child: Center(child: BigText(text: "Favorites?"))),
-      Container(child: Center(child: BigText(text: "Profile Page for Vendors?"))),
+      VendorList(),
+      Container(child: Center(child: BigText(text: "Food List in Lexicographical Order"))),
+      Container(child: Center(child: BigText(text: "About Us"))),
     ];
   }
 
@@ -96,19 +97,19 @@ class _HomePageState extends State<HomePage> {
         inactiveColorPrimary: CupertinoColors.systemGrey,
       ),
       PersistentBottomNavBarItem(
-        icon: Icon(Icons.history),
-        title: ("History"),
+        icon: Icon(Icons.storefront),
+        title: ("All Vendors"),
         activeColorPrimary: AppColors.mainColor,
         inactiveColorPrimary: CupertinoColors.systemGrey,
       ),
       PersistentBottomNavBarItem(
-        icon: Icon(CupertinoIcons.heart_solid),
-        title: ("Favorites"),
+        icon: Icon(Icons.fastfood_rounded),
+        title: ("All Food"),
         activeColorPrimary: AppColors.mainColor,
         inactiveColorPrimary: CupertinoColors.systemGrey,
       ),
       PersistentBottomNavBarItem(
-        icon: Icon(CupertinoIcons.person_fill),
+        icon: Icon(CupertinoIcons.person_3_fill),
         title: ("Me"),
         activeColorPrimary: AppColors.mainColor,
         inactiveColorPrimary: CupertinoColors.systemGrey,

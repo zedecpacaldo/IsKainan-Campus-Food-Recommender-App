@@ -35,7 +35,7 @@ class AppColumn extends StatelessWidget {
             SizedBox(width: Dimensions.width10,),
             SmallText(text: vendorProfile.vendorRating!),
             SizedBox(width: Dimensions.width10,),
-            SmallText(text: vendorProfile.vendorLocation!),
+            SmallText(text: vendorProfile.vendorLocation!, ),
           ],
         ),
         SizedBox(height: Dimensions.height10,),

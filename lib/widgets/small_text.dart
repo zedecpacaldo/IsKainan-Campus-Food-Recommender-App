@@ -23,7 +23,8 @@ class SmallText extends StatelessWidget {
             fontFamily: 'Roboto',
             color: color,
             fontSize: size,
-            height: height
+            height: height,
+            overflow: TextOverflow.ellipsis,
         )
     );
   }

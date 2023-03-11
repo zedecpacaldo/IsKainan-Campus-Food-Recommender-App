@@ -41,6 +41,7 @@ class VendorDetail extends StatelessWidget {
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
+            elevation: 0,
             automaticallyImplyLeading: false,
             toolbarHeight: 70,
             title: Row(
@@ -55,11 +56,11 @@ class VendorDetail extends StatelessWidget {
               ],
             ),
             bottom: PreferredSize(
-              preferredSize: Size.fromHeight(20),
+              preferredSize: Size.fromHeight(90),
               child: Container(
                 child: AppColumn(pageId: pageId!,),
                 width: double.maxFinite,
-                padding: EdgeInsets.only(top: Dimensions.width20, left: Dimensions.width20, right: Dimensions.width20),
+                padding: EdgeInsets.only(top: Dimensions.width20, left: Dimensions.width20, right: Dimensions.width20, bottom: Dimensions.width15),
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.only(
@@ -71,7 +72,7 @@ class VendorDetail extends StatelessWidget {
             ),
             pinned: true,
             backgroundColor: AppColors.mainColor,
-            expandedHeight: 300,
+            expandedHeight: Dimensions.screenHeight/3,
             flexibleSpace: FlexibleSpaceBar(
               background: Image.asset(
                   vendorProfile.vendorImg!,
@@ -83,6 +84,7 @@ class VendorDetail extends StatelessWidget {
           SliverToBoxAdapter(
             child:
               ListView.builder(
+                  padding: EdgeInsets.zero,
                   physics: NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
                   itemCount: vendorProfile.food_model.length,
@@ -133,6 +135,7 @@ class VendorDetail extends StatelessWidget {
                                         Row(
                                           children: [
                                             vendorProfile.food_model[index].isSpicy!?RectangleIconWidget(text: "SPICY", iconColor: Colors.red[900]!, isActivated: vendorProfile.food_model[index].isSpicy!):SmallText(text: ""),
+                                            vendorProfile.food_model[index].isSpicy!?SizedBox(width: Dimensions.width10,):SmallText(text: ""),
                                           ],
                                         )
                                       ],

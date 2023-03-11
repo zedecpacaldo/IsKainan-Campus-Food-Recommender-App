@@ -10,6 +10,7 @@ import '../../utils/colors.dart';
 import '../../utils/dimensions.dart';
 import '../../widgets/big_text.dart';
 import '../../widgets/expandable_text_widget.dart';
+import '../../widgets/small_text.dart';
 
 
 
@@ -22,10 +23,25 @@ class RecommendedFoodDetail extends StatelessWidget {
   Widget build(BuildContext context) {
     var foodProfile = Get.find<VendorController>().vendorList[pageId].food_model[foodId];
     return Scaffold(
+        floatingActionButton: FloatingActionButton(
+          heroTag: "vendor_detail_page",            // always ake heroTag unique per floating action button please thanks
+          onPressed: (){},
+          backgroundColor: AppColors.mainColor,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Icon(Icons.navigation),
+              SmallText(text: "GO", color: Colors.white,)
+            ],
+          ),
+        ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       backgroundColor: Colors.white,
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
+            elevation: 0,
             automaticallyImplyLeading: false,
             toolbarHeight: 70,
             title: Row(
@@ -46,9 +62,9 @@ class RecommendedFoodDetail extends StatelessWidget {
             bottom: PreferredSize(
               preferredSize: Size.fromHeight(20),
               child: Container(
-                child: Center(child: BigText(size: Dimensions.font26, text: foodProfile.foodName!)),
+                child: BigText(size: Dimensions.font26, text: foodProfile.foodName!),
                 width: double.maxFinite,
-                padding: EdgeInsets.only(top: 5, bottom: 10),
+                padding: EdgeInsets.only(top: Dimensions.width20, left: Dimensions.width20, right: Dimensions.width20, bottom: Dimensions.height10),
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.only(
@@ -60,7 +76,7 @@ class RecommendedFoodDetail extends StatelessWidget {
             ),
             pinned: true,
             backgroundColor: AppColors.mainColor,
-            expandedHeight: 300,
+            expandedHeight: Dimensions.screenHeight/2,
             flexibleSpace: FlexibleSpaceBar(
               background: Image.asset(
                 foodProfile.foodImg!,
@@ -80,57 +96,7 @@ class RecommendedFoodDetail extends StatelessWidget {
             )
           ),
         ],
-      ),
-      bottomNavigationBar: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Container(
-            height: Dimensions.bottomHeightBar,
-            padding: EdgeInsets.only(top: Dimensions.height30, bottom: Dimensions.height30, left: Dimensions.width20, right: Dimensions.width20),
-            decoration: BoxDecoration(
-              color: AppColors.buttonBackgroundColor,
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(Dimensions.radius20*2),
-                topRight: Radius.circular(Dimensions.radius20*2),
-              ),
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Row(
-                  children: [
-                    Container(
-                        padding: EdgeInsets.only(top: Dimensions.height20, bottom: Dimensions.height20, left: Dimensions.width20, right: Dimensions.width20),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(Dimensions.radius20/2),
-                          color: Colors.white,
-                        ),
-                        child: Icon(Icons.soup_kitchen,),
-                    ),
-                    SizedBox(width: Dimensions.width10,),
-                    Container(
-                      padding: EdgeInsets.only(top: Dimensions.height20, bottom: Dimensions.height20, left: Dimensions.width20, right: Dimensions.width20),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(Dimensions.radius20/2),
-                        color: Colors.white,
-                      ),
-                      child: Icon(Icons.soup_kitchen,),
-                    ),
-                  ],
-                ),
-                Container(
-                  padding: EdgeInsets.only(top: Dimensions.height20, bottom: Dimensions.height20, left: Dimensions.width20, right: Dimensions.width20),
-                  child: BigText(text: "Find on Map", color: Colors.white, size: Dimensions.font20,),
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(Dimensions.radius20),
-                      color: AppColors.mainColor
-                  ),
-                )
-              ],
-            ),
-          ),
-        ],
-      ),
+      )
     );
   }
 }
