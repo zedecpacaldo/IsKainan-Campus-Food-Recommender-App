@@ -42,6 +42,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
   @override
   void dispose(){
     pageController.dispose();
+    super.dispose();          // dispose include child pages that gets loaded in this page
   }
 
   @override
@@ -183,8 +184,8 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     CircularProgressIndicator(
-            color: AppColors.mainColor,
-          ),
+                      color: AppColors.mainColor,
+                    ),
                   ],
                 ),
               );
